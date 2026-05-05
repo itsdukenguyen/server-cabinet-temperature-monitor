@@ -1,0 +1,36 @@
+# Server Cabinet Template Sensors
+# Add this to your configuration.yaml under the template: section
+
+template:
+  - sensor:
+      - name: "Server Cabinet Average Temperature"
+        unique_id: server_cabinet_avg_temp
+        unit_of_measurement: "°F"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {% set top = states('sensor.cabinet_top_temperature') | float(0) %}
+          {% set bottom = states('sensor.cabinet_bottom_temperature') | float(0) %}
+          {{ ((top + bottom) / 2) | round(1) }}
+
+      - name: "Server Cabinet Max Temperature"
+        unique_id: server_cabinet_max_temp
+        unit_of_measurement: "°F"
+        device_class: temperature
+        state_class: measurement
+        state: >
+          {% set top = states('sensor.cabinet_top_temperature') | float(0) %}
+          {% set bottom = states('sensor.cabinet_bottom_temperature') | float(0) %}
+          {{ [top, bottom] | max | round(1) }}
+
+      - name: "Server Cabinet Temperature Delta"
+        unique_id: server_cabinet_temp_delta
+        unit_of_measurement: "°F"
+        icon: mdi:thermometer-chevron-up
+        state: >
+          {% set top = states('sensor.cabinet_top_temperature') | float(0) %}
+          {% set bottom = states('sensor.cabinet_bottom_temperature') | float(0) %}
+          {{ (top - bottom) | round(1) }}
+        attributes:
+          top_temperature: "{{ states('sensor.cabinet_top_temperature') }}"
+          bottom_temperature: "{{ states('sensor.cabinet_bottom_temperature') }}"

@@ -1,0 +1,15 @@
+# ESPHome
+*.log
+*.db
+.esphome/
+secrets.yaml
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+*.tmp
+.vscode/
+.idea/
+
+# Home Assistant
+home-assistant.log*
