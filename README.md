@@ -2,9 +2,9 @@
 
 # Server Cabinet Temperature Monitor
 
-ESPHome-based dual DHT22 temperature and humidity monitoring system for a 9U server cabinet.
+ESPHome-based dual DHT22 temperature and humidity monitoring system for a **9U server cabinet**.
 
-**Project Goal**: Monitor temperature differential between the top and bottom of the cabinet to detect hot spots and airflow issues early.
+**Project Goal**: Monitor temperature differential between the top and bottom of the cabinet to detect hot spots, poor airflow, or fan failures early.
 
 ---
 
@@ -23,7 +23,9 @@ ESPHome-based dual DHT22 temperature and humidity monitoring system for a 9U ser
 - Average Cabinet Temperature
 - Temperature Delta (Top - Bottom)
 - WiFi Signal Strength & Uptime Monitoring
-- Fully local control (no cloud)
+- Fully local (no cloud dependency)
+
+---
 
 ## Hardware Used
 
@@ -35,20 +37,39 @@ See [`hardware/wiring.md`](hardware/wiring.md)
 
 ## ESPHome Configuration
 
-[`esphome/server-cabinet-temp.yaml`](esphome/server-cabinet-temp.yaml)
+Full config: [`esphome/server-cabinet-temp.yaml`](esphome/server-cabinet-temp.yaml)
 
 ## Home Assistant Template Sensors
 
-[`home-assistant/template-sensors.yaml`](home-assistant/template-sensors.yaml)
+See: [`home-assistant/template-sensors.yaml`](home-assistant/template-sensors.yaml)
 
 ## How to Replicate This Project
 
 1. Flash the ESP8266 using ESPHome
-2. Wire the two DHT22 sensors (Top → D1, Bottom → D2)
-3. Add the YAML files to Home Assistant
-4. Mount securely inside the server cabinet
+2. Wire the two DHT22 sensors (Top → GPIO5/D1, Bottom → GPIO4/D2)
+3. Copy the YAML files into Home Assistant
+4. Mount sensors securely inside the cabinet
+
+---
+
+## Project Photos
+
+*(Add your photos here — highly recommended)*
+
+![Cabinet Top Sensor](hardware/photos/top-sensor.jpg)
+![Cabinet Bottom Sensor](hardware/photos/bottom-sensor.jpg)
+![Installed View](hardware/photos/installed.jpg)
+
+---
+
+## Known Issues / Notes
+
+- DHT22 sensors can occasionally give false high readings if placed too close to hot components
+- 3.3V logic only — do not use 5V on data pins
+- Consider adding a small 10kΩ pull-up resistor if readings are unstable
 
 ---
 
 **Last Updated**: May 2026  
-**Author**: Duc Nguyen
+**Author**: Duc Nguyen  
+**License**: MIT
