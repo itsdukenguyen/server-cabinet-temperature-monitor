@@ -1,75 +1,100 @@
-![Server Cabinet Temperature Monitor](banner.jpg)
-
 # Server Cabinet Temperature Monitor
 
-ESPHome-based dual DHT22 temperature and humidity monitoring system for a **9U server cabinet**.
+<p align="center">
+  <img src="banner.jpg" alt="Server Cabinet Temperature Monitor" width="100%" />
+</p>
 
-**Project Goal**: Monitor temperature differential between the top and bottom of the cabinet to detect hot spots, poor airflow, or fan failures early.
+[![ESPHome](https://img.shields.io/badge/ESPHome-2026.1.4-007ACC.svg)](https://esphome.io)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-ESP32-000000.svg)](https://www.espressif.com)
+[![Home Assistant](https://img.shields.io/badge/Home%20Assistant-2025+-41B1E5.svg)](https://www.home-assistant.io)
+
+**ESPHome dual-sensor temperature & humidity monitor** for a 9U server cabinet.  
+Tracks top vs bottom differential to detect hot spots, poor airflow, or fan failures early.
 
 ---
 
-## Badges
+## ✨ Features
 
-![ESPHome](https://img.shields.io/badge/ESPHome-000000?style=for-the-badge&logo=esphome&logoColor=white)
-![ESP8266](https://img.shields.io/badge/ESP8266-000000?style=for-the-badge&logo=esp8266&logoColor=white)
-![Home Assistant](https://img.shields.io/badge/Home%20Assistant-41BDF5?style=for-the-badge&logo=home-assistant&logoColor=white)
-![License](https://img.shields.io/badge/License-MIT-yellow.svg)
-
----
-
-## Features
-
-- Real-time Top & Bottom Temperature + Humidity
-- Average Cabinet Temperature
+- Real-time Top + Bottom Temperature & Humidity
+- Cabinet Average Temperature
 - Temperature Delta (Top - Bottom)
-- WiFi Signal Strength & Uptime Monitoring
-- Fully local (no cloud dependency)
+- WiFi signal strength & uptime monitoring
+- Fully local (no cloud services)
+- Easy Home Assistant integration
 
 ---
 
-## Hardware Used
+## 🛠️ Hardware
 
-See [`hardware/parts-list.md`](hardware/parts-list.md)
+See [`hardware/parts-list.md`](hardware/parts-list.md) for the complete bill of materials.
 
-## Wiring & Installation
-
-See [`hardware/wiring.md`](hardware/wiring.md)
-
-## ESPHome Configuration
-
-Full config: [`esphome/server-cabinet-temp.yaml`](esphome/server-cabinet-temp.yaml)
-
-## Home Assistant Template Sensors
-
-See: [`home-assistant/template-sensors.yaml`](home-assistant/template-sensors.yaml)
-
-## How to Replicate This Project
-
-1. Flash the ESP8266 using ESPHome
-2. Wire the two DHT22 sensors (Top → GPIO5/D1, Bottom → GPIO4/D2)
-3. Copy the YAML files into Home Assistant
-4. Mount sensors securely inside the cabinet
+**Main Components:**
+- ESP32 (or ESP8266)
+- 2× HiLetgo DHT22 sensors (Top + Bottom)
+- Jumper wires + optional 3D-printed enclosure
 
 ---
 
-## Project Photos
+## 🚀 Quick Start
 
-*(Add your photos here — highly recommended)*
+1. Copy the config from `esphome/server-cabinet-temp.yaml`
+2. Update your WiFi & MQTT secrets
+3. Flash to your ESP32/ESP8266
+4. Import template sensors from `home-assistant/template-sensors.yaml`
 
-![Cabinet Top Sensor](hardware/photos/top-sensor.jpg)
-![Cabinet Bottom Sensor](hardware/photos/bottom-sensor.jpg)
-![Installed View](hardware/photos/installed.jpg)
-
----
-
-## Known Issues / Notes
-
-- DHT22 sensors can occasionally give false high readings if placed too close to hot components
-- 3.3V logic only — do not use 5V on data pins
-- Consider adding a small 10kΩ pull-up resistor if readings are unstable
+```bash
+# Optional: Using ESPHome CLI
+esphome run esphome/server-cabinet-temp.yaml
+```
 
 ---
 
-**Last Updated**: May 2026  
-**Author**: Duc Nguyen  
-**License**: MIT
+## 📸 Project Photos
+
+<img src="hardware/photos/top-sensor.jpg" alt="Top Sensor" width="32%">
+  <img src="hardware/photos/bottom-sensor.jpg" alt="Bottom Sensor" width="32%">
+  <img src="hardware/photos/installed.jpg" alt="Installed in Cabinet" width="32%">
+  
+  ---
+  
+## 📖 Full Documentation
+
+| Document                        | Description |
+|--------------------------------|-------------|
+| [`hardware/parts-list.md`](parts-list.md)             | Complete parts list + links |
+| [`hardware/wiring.md`](wiring.md) | Wiring diagram and installation guide |
+| [`esphome/server-cabinet-temp.yaml`](server-cabinet-temp.yaml) | Main ESPHome configuration |
+| [`home-assistant/template-sensors.yaml`](template-sensors.yaml) | Home Assistant template sensors |
+
+---
+
+## ⚠️ Known Issues & Notes
+
+- DHT22 sensors can give false high readings if placed too close to hot components
+- Use 3.3V logic only — do not use 5V on data pins
+- Add a 10kΩ pull-up resistor if readings are unstable
+
+---
+
+## 📝 Changelog
+
+See recent commits (recently upgraded to ESP32).
+
+---
+
+## 🤝 Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+## 📄 License
+
+MIT License © 2026 Duc Nguyen
+
+---
+
+Star this repo if it helps you keep your servers cool! ❄️
+
+Last updated: May 2026
