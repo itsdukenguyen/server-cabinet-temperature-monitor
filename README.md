@@ -32,7 +32,7 @@ See [`hardware/parts-list.md`](hardware/parts-list.md) for the complete bill of 
 **Main Components:**
 - ESP32 (or ESP8266)
 - 2× HiLetgo DHT22 sensors (Top + Bottom)
-- Jumper wires + optional 3D-printed enclosure
+- Jumper wires + optional enclosure
 
 ---
 
@@ -60,13 +60,13 @@ esphome run esphome/server-cabinet-temp.yaml
   
 ## 📖 Full Documentation
 
-| Document                        | Description |
-|--------------------------------|-------------|
-| [`hardware/parts-list.md`](parts-list.md)             | Complete parts list + links |
-| [`hardware/wiring.md`](wiring.md) | Wiring diagram and installation guide |
-| [`esphome/server-cabinet-temp.yaml`](server-cabinet-temp.yaml) | Main ESPHome configuration |
-| [`home-assistant/template-sensors.yaml`](template-sensors.yaml) | Home Assistant template sensors |
 
+| Document                                      | Description |
+|-----------------------------------------------|-------------|
+| [`hardware/parts-list.md`](hardware/parts-list.md) | Complete parts list with links and pricing |
+| [`hardware/wiring.md`](hardware/wiring.md) | Wiring diagram and installation instructions |
+| [`esphome/server-cabinet-temp.yaml`](esphome/server-cabinet-temp.yaml) | Main ESPHome configuration file |
+| [`home-assistant/template-sensors.yaml`](home-assistant/template-sensors.yaml) | Home Assistant template sensors |
 ---
 
 ## ⚠️ Known Issues & Notes
