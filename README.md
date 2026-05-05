@@ -53,8 +53,8 @@ esphome run esphome/server-cabinet-temp.yaml
 ## 📸 Project Photos
 
 <img src="hardware/photos/top-sensor.jpg" alt="Top Sensor" width="32%">
-  <img src="hardware/photos/bottom-sensor.jpg" alt="Bottom Sensor" width="32%">
-  <img src="hardware/photos/installed.jpg" alt="Installed in Cabinet" width="32%">
+<img src="hardware/photos/bottom-sensor.jpg" alt="Bottom Sensor" width="32%">
+<img src="hardware/photos/installed.jpg" alt="Installed in Cabinet" width="32%">
   
   ---
   
