@@ -91,7 +91,7 @@ Contributions, issues, and feature requests are welcome!
 
 ## 📄 License
 
-MIT License © 2026 Duc Nguyen
+[MIT License](LICENSE) © 2026 Duc Nguyen
 
 ---
 
